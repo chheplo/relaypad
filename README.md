@@ -2,7 +2,7 @@
 
 Use your iPhone as a wireless Mac trackpad with seven customizable shortcut keys. In landscape, about 80% of the control surface moves the pointer. The right side holds Fn, Control, Option, 1, 2, 3, and a wide Space bar. Both apps run natively and pair over your local network.
 
-![Relaypad on iPhone showing the landscape trackpad, click buttons and seven shortcut keys](release-assets/web/iphone-trackpad.webp)
+![An iPhone in landscape running Relaypad, with its trackpad, click buttons and seven shortcut keys visible](docs/assets/iphone-device.webp)
 
 [Get Relaypad](https://chheplo.github.io/relaypad/#downloads) · [GitHub releases](https://github.com/chheplo/relaypad/releases) · [Mac receiver screenshot](release-assets/web/mac-receiver.webp) · [Shortcut settings screenshot](release-assets/web/iphone-shortcuts.webp)
 
