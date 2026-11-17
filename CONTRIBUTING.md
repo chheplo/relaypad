@@ -31,6 +31,18 @@ The protocol check exercises the v1 payloads, length prefixes and TLS handshake 
 
 For changes to pairing or event delivery, also exercise a real pair. Connect, click in an empty editor, type `123` and a space, double-tap Fn, disconnect while holding a modifier, then reconnect. Use a previously released v1 counterpart when checking a change to just one app. Keep fixed v1 samples in the compatibility test even when a new app layout ships. [Protocol and compatibility policy](docs/protocol-v1.md)
 
+## Mac release disk images
+
+Run `scripts/package-macos.sh preview` for ad-hoc development images. The `release` mode uses a Developer ID Application certificate and a notarytool Keychain profile to sign and submit the DMGs. Run `scripts/package-macos.sh --help` for its environment settings.
+
+When Xcode has already submitted the Apple silicon and Intel app archives for notarization, retrieve those submissions and package the results with the following command. Use the original submitted archives, in architecture order.
+
+```sh
+scripts/package-macos.sh notarized-apps /path/to/arm64.xcarchive /path/to/x86_64.xcarchive
+```
+
+This mode calls `xcodebuild -exportNotarizedApp` to retrieve the existing results. If Apple is still processing them, rerun the same command after tickets become available. It also accepts paths to two already-exported, stapled app bundles. This route produces unsigned, read-only DMG containers holding the Developer ID–signed and notarized apps. The script checks the app tickets, both architectures, the matching release identities, and Gatekeeper assessment of the mounted and installed copies. It writes both verified images and `SHA256SUMS` together. In the output directory, run `shasum -a 256 -c SHA256SUMS` before publishing the release assets.
+
 ## Publishing download links
 
 The website reads `docs/site-release.json`. Each of the three channels has a `version` and a `url`. Leave them null until the corresponding download has been publicly verified. Use the production App Store listing for iPhone and architecture-specific GitHub Releases DMG URLs for macOS. A source-build link remains available for any channel without a verified download. Update the iPhone, Apple silicon and Intel entries independently when their releases go live.
