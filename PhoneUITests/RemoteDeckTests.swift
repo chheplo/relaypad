@@ -53,6 +53,22 @@ final class RemoteDeckTests: XCTestCase {
         }
     }
 
+    func testAboutShowsOnlyThePublicVersion() throws {
+        app.buttons["settings.open"].tap()
+        let row = app.descendants(matching: .any)["about.version"].firstMatch
+        for _ in 0..<8 where !row.isHittable {
+            app.collectionViews.firstMatch.swipeUp(velocity: .slow)
+        }
+        let version = try XCTUnwrap(Bundle(for: type(of: self)).object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String)
+        XCTAssertEqual(row.label, "Version, \(version)")
+        XCTAssertTrue(app.staticTexts["Developer, Pratik Desai (@chheplo)"].exists)
+        XCTAssertTrue(app.buttons["about.repository"].exists)
+        let image = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+        image.name = "About Relaypad"
+        image.lifetime = .keepAlways
+        add(image)
+    }
+
     func testShortcutRemappingSurvivesRelaunch() {
         app.buttons["settings.open"].tap()
         app.buttons["binding.0"].tap()
