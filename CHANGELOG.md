@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.0
+## 1.0.4
 
 Relaypad’s first iPhone and Mac release line uses local protocol v1. The two apps can update independently while they support this protocol. [Downloads and availability](https://chheplo.github.io/relaypad/#downloads) · [Protocol v1](docs/protocol-v1.md)
 
@@ -9,4 +9,5 @@ Relaypad’s first iPhone and Mac release line uses local protocol v1. The two a
 - Send a longer passage through the iPhone keyboard to the focused Mac app. Adjust pointer sensitivity and haptics on the phone.
 - Discover a Mac with Bonjour and pair over authenticated TLS using its 12-character code. The iPhone groups the code with automatic hyphens as you type or paste. Saved phones reconnect automatically. The receiver releases held inputs on disconnect and lets you revoke saved pairings by rotating the code.
 - Build the native apps from the Xcode project. The Mac packaging script produces distinct Apple silicon and Intel images and verifies Developer ID signing, notarization, stapling and checksums in release mode.
-- iPhone build 5 keeps the insertion point after newly formatted text when pasting over a selection in the pairing code. Backspace removes the preceding symbol at a group separator. It pairs with Mac build 4 using protocol v1.
+- Pasting over a selected part of the pairing code keeps the insertion point after the replacement, including automatic hyphens. Backspace at a separator removes the preceding symbol.
+- Both apps show the public version 1.0.4 in About. Internal build numbers remain available in bundle metadata for distribution.
