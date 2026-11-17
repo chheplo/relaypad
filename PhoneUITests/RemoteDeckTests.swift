@@ -53,7 +53,7 @@ final class RemoteDeckTests: XCTestCase {
         }
     }
 
-    func testAboutShowsOnlyThePublicVersion() throws {
+    func testAboutShowsPublicVersionAndPrivacyPolicy() throws {
         app.buttons["settings.open"].tap()
         let row = app.descendants(matching: .any)["about.version"].firstMatch
         for _ in 0..<8 where !row.isHittable {
@@ -63,6 +63,10 @@ final class RemoteDeckTests: XCTestCase {
         XCTAssertEqual(row.label, "Version, \(version)")
         XCTAssertTrue(app.staticTexts["Developer, Pratik Desai (@chheplo)"].exists)
         XCTAssertTrue(app.buttons["about.repository"].exists)
+        let policy = app.buttons["about.privacy"]
+        if !policy.isHittable { app.collectionViews.firstMatch.swipeUp(velocity: .slow) }
+        XCTAssertTrue(policy.isHittable)
+        XCTAssertEqual(policy.label, "Privacy policy")
         let image = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
         image.name = "About Relaypad"
         image.lifetime = .keepAlways
