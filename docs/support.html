@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1c201e">
+  <meta name="description" content="Pair Relaypad, troubleshoot a connection, and learn trackpad gestures and shortcut setup.">
+  <title>Support — Relaypad</title>
+  <link rel="icon" type="image/png" href="assets/relaypad.png">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="shell bar">
+  <a class="brand" href="./"><img src="assets/relaypad.png" alt="" width="35" height="35">Relaypad</a>
+  <nav aria-label="Main"><a href="./#downloads">Downloads</a><a href="./#setup">Setup</a><a href="https://github.com/chheplo/relaypad">GitHub ↗</a></nav>
+</div></header>
+<main id="main" class="shell"><article class="prose">
+  <h1>Relaypad support</h1><p>Relaypad pairs an iPhone running iOS 17 or later with a Mac running macOS 14 or later. The iPhone connects directly to the Mac on your local network. <a href="./#setup">Pair your devices</a>.</p>
+  <h2>Connection and input</h2>
+  <details open><summary>My Mac is missing from Pair Mac</summary><p>Open Relaypad for Mac and click <strong>Start receiver</strong>. Connect both devices to the same local network. Allow Relaypad in each device’s Local Network privacy settings. Some guest Wi-Fi networks isolate devices from each other. Try a network where the devices can communicate.</p></details>
+  <details><summary>The phone says “Enable input”</summary><p>On the Mac, go to <strong>System Settings → Privacy &amp; Security → Accessibility</strong>. Allow the copy of Relaypad for Mac you are running. Open an empty editor, click inside it from the phone, then tap 1, 2 and 3.</p></details>
+  <details><summary>The code changed, or another phone is connected</summary><p>The receiver accepts one phone at a time. Disconnect the active phone, or stop and restart the receiver. To revoke a shared code, click <strong>New code</strong> on the Mac and pair with the replacement code. Under Pair Mac on iPhone, select the Mac and use <strong>Forget saved code</strong> to clear the old credential.</p></details>
+  <details><summary>The connection stopped after sleep</summary><p>The receiver stops when the Mac sleeps or its user session switches. Click <strong>Start receiver</strong> and open the iPhone app. A previously paired phone retries its saved connection while the receiver is available.</p></details>
+  <h2>Gestures and shortcut keys</h2>
+  <p>Slide one finger to move, tap once to click, and tap twice to double-click. Slide two fingers to scroll. Hold one finger still, then move it to drag. Use the Right click button for the secondary click.</p>
+  <p>Open the sliders button to remap any of the seven keys. Choose an individual key or a shortcut preset and save. Hold Fn, Control or Option while tapping another key to send a chord. The Mac app with keyboard focus receives it.</p>
+  <a class="support-shot" href="assets/iphone-shortcuts.webp" aria-label="Open the full-size shortcuts screenshot"><img src="assets/iphone-shortcuts.webp" alt="Relaypad settings for customizing its shortcut keys." loading="lazy" width="1400" height="644"></a>
+  <h2>Voice dictation</h2>
+  <p>For Mac dictation, use a shortcut configured in the dictation app and speak into its selected microphone. Wispr Flow supports a quick double-tap of its push-to-talk shortcut and a hands-free shortcut such as Fn+Space. Test the binding with your installed app. To use iPhone dictation, open <strong>Keyboard</strong> in Relaypad, use the system keyboard’s dictation button and tap <strong>Send</strong>. <a href="https://docs.wisprflow.ai/articles/6391241694-use-flow-hands-free">Wispr Flow hands-free guide</a>.</p>
+  <h2>Contact and bug reports</h2>
+  <p>Open a GitHub issue with the iOS and macOS versions, device models, Relaypad versions, and what you expected to happen. Omit pairing codes and personal text. For sensitive findings, use the private reporting instructions in the contribution guide. <a href="https://github.com/chheplo/relaypad/issues">Contact support</a> · <a href="https://github.com/chheplo/relaypad/blob/main/CONTRIBUTING.md#security-reports">Security reports</a></p>
+</article></main>
+<footer><div class="shell foot"><span class="owner">Relaypad · Pratik Desai</span>
+  <nav aria-label="Footer"><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="https://github.com/chheplo/relaypad/blob/main/LICENSE">MIT license</a></nav>
+</div></footer>
+</body>
+</html>
