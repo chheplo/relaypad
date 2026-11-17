@@ -43,6 +43,10 @@ scripts/package-macos.sh notarized-apps /path/to/arm64.xcarchive /path/to/x86_64
 
 This mode calls `xcodebuild -exportNotarizedApp` to retrieve the existing results. If Apple is still processing them, rerun the same command after tickets become available. It also accepts paths to two already-exported, stapled app bundles. This route produces unsigned, read-only DMG containers holding the Developer ID–signed and notarized apps. The script checks the app tickets, both architectures, the matching release identities, and Gatekeeper assessment of the mounted and installed copies. It writes both verified images and `SHA256SUMS` together. In the output directory, run `shasum -a 256 -c SHA256SUMS` before publishing the release assets.
 
+## App versions
+
+Set the public release number in `MARKETING_VERSION` in `Config/Base.xcconfig`. Both About views display that value. Increment `CURRENT_PROJECT_VERSION` for a new distribution build. Keep the wire protocol version independent of either number and record user-visible changes in the changelog.
+
 ## Publishing download links
 
 The website reads `docs/site-release.json`. Each of the three channels has a `version` and a `url`. Leave them null until the corresponding download has been publicly verified. Use the production App Store listing for iPhone and architecture-specific GitHub Releases DMG URLs for macOS. A source-build link remains available for any channel without a verified download. Update the iPhone, Apple silicon and Intel entries independently when their releases go live.
