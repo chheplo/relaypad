@@ -1,0 +1,427 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		935B62DCEBB52A9192B39245 /* Relaypad app proxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F6F4DA8D93E88A08220E03B7 /* Project */;
+			proxyType = 1;
+			remoteGlobalIDString = C8ED0C7C7A27D5C522FD4B07;
+			remoteInfo = Relaypad;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CDFD9E32084BBFA43CAB041C /* Base.xcconfig */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.xcconfig;
+			path = Base.xcconfig;
+			sourceTree = "<group>";
+		};
+		47BB8D98CA6F2F1C5E530948 /* Phone.xcconfig */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.xcconfig;
+			path = Phone.xcconfig;
+			sourceTree = "<group>";
+		};
+		F3BB1A3C271DC97E542009B3 /* Mac.xcconfig */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.xcconfig;
+			path = Mac.xcconfig;
+			sourceTree = "<group>";
+		};
+		1AE6C3E3E9FB4E50F7C67E6B /* PhoneUITests.xcconfig */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.xcconfig;
+			path = PhoneUITests.xcconfig;
+			sourceTree = "<group>";
+		};
+		AE9CCECFC30119DE92C859A9 /* Phone.plist */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.xml;
+			path = Phone.plist;
+			sourceTree = "<group>";
+		};
+		F1A920A0A0D664E6D6835D5E /* Mac.plist */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.xml;
+			path = Mac.plist;
+			sourceTree = "<group>";
+		};
+		6497B92D3E71B8BF30D7FED2 /* Relaypad.app */ = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.application;
+			includeInIndex = 0;
+			path = "Relaypad.app";
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		08C07B8F17AF9E72CAB1CC90 /* Relaypad for Mac.app */ = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.application;
+			includeInIndex = 0;
+			path = "Relaypad for Mac.app";
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DCB373A26BB60A31B83601A4 /* RelaypadUITests.xctest */ = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.cfbundle;
+			includeInIndex = 0;
+			path = "RelaypadUITests.xctest";
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		50D0D8DD11A959484CB838E0 /* Shared */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		77064D5265236E0AC252F3FC /* Phone */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Phone;
+			sourceTree = "<group>";
+		};
+		08BCE2D9A3206BF0D7143D86 /* Mac */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Mac;
+			sourceTree = "<group>";
+		};
+		F5FEF3FB92E21B3A0CD899C0 /* PhoneUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = PhoneUITests;
+			sourceTree = "<group>";
+		};
+		20E338624CEE29D0EFFEAD85 /* Assets */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Assets;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4E7A467B5EC3F1EB90545E48 /* Relaypad Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCC20A592D40BC5001BD5FB6 /* Relaypad for Mac Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		377632350918FB05A3DFF870 /* RelaypadUITests Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8851142DA56FD885CE668A16 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				CDFD9E32084BBFA43CAB041C /* Base.xcconfig */,
+				47BB8D98CA6F2F1C5E530948 /* Phone.xcconfig */,
+				F3BB1A3C271DC97E542009B3 /* Mac.xcconfig */,
+				1AE6C3E3E9FB4E50F7C67E6B /* PhoneUITests.xcconfig */,
+				AE9CCECFC30119DE92C859A9 /* Phone.plist */,
+				F1A920A0A0D664E6D6835D5E /* Mac.plist */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		FE0A091FDBFB3E9C31B7A1BD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6497B92D3E71B8BF30D7FED2 /* Relaypad.app */,
+				08C07B8F17AF9E72CAB1CC90 /* Relaypad for Mac.app */,
+				DCB373A26BB60A31B83601A4 /* RelaypadUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4CA0A75C2B7FA7DA4364D03B /* Workspace */ = {
+			isa = PBXGroup;
+			children = (
+				77064D5265236E0AC252F3FC /* Phone */,
+				08BCE2D9A3206BF0D7143D86 /* Mac */,
+				50D0D8DD11A959484CB838E0 /* Shared */,
+				F5FEF3FB92E21B3A0CD899C0 /* PhoneUITests */,
+				20E338624CEE29D0EFFEAD85 /* Assets */,
+				8851142DA56FD885CE668A16 /* Config */,
+				FE0A091FDBFB3E9C31B7A1BD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C8ED0C7C7A27D5C522FD4B07 /* Relaypad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7C2E213A31A7817BEAB4983 /* Relaypad configurations */;
+			buildPhases = (
+				98ADCB87A11C0597102703A0 /* Relaypad Sources */,
+				4E7A467B5EC3F1EB90545E48 /* Relaypad Frameworks */,
+				15FFB992FD677C0D24BDE8E2 /* Relaypad Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				77064D5265236E0AC252F3FC /* Phone */,
+				50D0D8DD11A959484CB838E0 /* Shared */,
+				20E338624CEE29D0EFFEAD85 /* Assets */,
+			);
+			name = "Relaypad";
+			productName = "Relaypad";
+			productReference = 6497B92D3E71B8BF30D7FED2 /* Relaypad.app */;
+			productType = "com.apple.product-type.application";
+		};
+		83862AB8020A4B2772BBC787 /* Relaypad for Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FFF69AF15C8146FD26DCEA2 /* Relaypad for Mac configurations */;
+			buildPhases = (
+				D85F64B514013C8F97A801A0 /* Relaypad for Mac Sources */,
+				DCC20A592D40BC5001BD5FB6 /* Relaypad for Mac Frameworks */,
+				69C5C122A788C0B0A886D3E4 /* Relaypad for Mac Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				08BCE2D9A3206BF0D7143D86 /* Mac */,
+				50D0D8DD11A959484CB838E0 /* Shared */,
+				20E338624CEE29D0EFFEAD85 /* Assets */,
+			);
+			name = "Relaypad for Mac";
+			productName = "Relaypad for Mac";
+			productReference = 08C07B8F17AF9E72CAB1CC90 /* Relaypad for Mac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		069325B1F5CC07F288B5E6B5 /* RelaypadUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA08A393FB8539534463F48B /* RelaypadUITests configurations */;
+			buildPhases = (
+				B4E11516EDF04EEEC431C532 /* RelaypadUITests Sources */,
+				377632350918FB05A3DFF870 /* RelaypadUITests Frameworks */,
+				618F60A57A97BF9B42F4EBE8 /* RelaypadUITests Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B558C32B499FF759FD238817 /* Relaypad app dependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F5FEF3FB92E21B3A0CD899C0 /* PhoneUITests */,
+			);
+			name = "RelaypadUITests";
+			productName = "RelaypadUITests";
+			productReference = DCB373A26BB60A31B83601A4 /* RelaypadUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F6F4DA8D93E88A08220E03B7 /* Project */ = {
+			isa = PBXProject;
+			attributes = { BuildIndependentTargetsInParallel = 1; LastSwiftUpdateCheck = 2620; LastUpgradeCheck = 2620; TargetAttributes = { 069325B1F5CC07F288B5E6B5 = { TestTargetID = C8ED0C7C7A27D5C522FD4B07; }; }; };
+			buildConfigurationList = EA4CB304C2116E38EA8A7F98 /* Project configurations */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4CA0A75C2B7FA7DA4364D03B /* Workspace */;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = FE0A091FDBFB3E9C31B7A1BD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C8ED0C7C7A27D5C522FD4B07 /* Relaypad */,
+				83862AB8020A4B2772BBC787 /* Relaypad for Mac */,
+				069325B1F5CC07F288B5E6B5 /* RelaypadUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		15FFB992FD677C0D24BDE8E2 /* Relaypad Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69C5C122A788C0B0A886D3E4 /* Relaypad for Mac Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		618F60A57A97BF9B42F4EBE8 /* RelaypadUITests Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		98ADCB87A11C0597102703A0 /* Relaypad Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D85F64B514013C8F97A801A0 /* Relaypad for Mac Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4E11516EDF04EEEC431C532 /* RelaypadUITests Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B558C32B499FF759FD238817 /* Relaypad app dependency */ = {
+			isa = PBXTargetDependency;
+			target = C8ED0C7C7A27D5C522FD4B07 /* Relaypad */;
+			targetProxy = 935B62DCEBB52A9192B39245 /* Relaypad app proxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		40609A412964FFB79DAE9C3A /* Project Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDFD9E32084BBFA43CAB041C /* Base.xcconfig */;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				ENABLE_TESTABILITY = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+			};
+			name = Debug;
+		};
+		24B7DFA423B1C8A2130AE03E /* Project Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDFD9E32084BBFA43CAB041C /* Base.xcconfig */;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				ENABLE_TESTABILITY = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		EE386E121402E05692B80361 /* Relaypad Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47BB8D98CA6F2F1C5E530948 /* Phone.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		04AE33B9EC57A7C495DED391 /* Relaypad Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47BB8D98CA6F2F1C5E530948 /* Phone.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		D3A2F8BCB89E09D17BD1E94A /* Relaypad for Mac Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3BB1A3C271DC97E542009B3 /* Mac.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		3456801196CB182D481DFB09 /* Relaypad for Mac Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3BB1A3C271DC97E542009B3 /* Mac.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		0F59F64E9EC8F6BD4BDACD0C /* RelaypadUITests Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1AE6C3E3E9FB4E50F7C67E6B /* PhoneUITests.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		5D49DCC7291E467F64F89135 /* RelaypadUITests Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1AE6C3E3E9FB4E50F7C67E6B /* PhoneUITests.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EA4CB304C2116E38EA8A7F98 /* Project configurations */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40609A412964FFB79DAE9C3A /* Project Debug */,
+				24B7DFA423B1C8A2130AE03E /* Project Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7C2E213A31A7817BEAB4983 /* Relaypad configurations */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE386E121402E05692B80361 /* Relaypad Debug */,
+				04AE33B9EC57A7C495DED391 /* Relaypad Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FFF69AF15C8146FD26DCEA2 /* Relaypad for Mac configurations */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3A2F8BCB89E09D17BD1E94A /* Relaypad for Mac Debug */,
+				3456801196CB182D481DFB09 /* Relaypad for Mac Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA08A393FB8539534463F48B /* RelaypadUITests configurations */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0F59F64E9EC8F6BD4BDACD0C /* RelaypadUITests Debug */,
+				5D49DCC7291E467F64F89135 /* RelaypadUITests Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F6F4DA8D93E88A08220E03B7 /* Project */;
+}
