@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1c201e">
+  <meta name="description" content="How Relaypad handles pairing, local input, preferences, dictation, and the project website.">
+  <title>Privacy — Relaypad</title>
+  <link rel="icon" type="image/png" href="assets/relaypad.png">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="shell bar">
+  <a class="brand" href="./"><img src="assets/relaypad.png" alt="" width="35" height="35">Relaypad</a>
+  <nav aria-label="Main"><a href="./#downloads">Downloads</a><a href="./#setup">Setup</a><a href="https://github.com/chheplo/relaypad">GitHub ↗</a></nav>
+</div></header>
+<main id="main" class="shell"><article class="prose">
+  <h1>Privacy policy</h1><p>Effective November 17, 2026. This policy covers Relaypad for iPhone, Relaypad for Mac and the project website, maintained by Pratik Desai.</p>
+  <h2>Your input stays between your devices</h2>
+  <p>Relaypad sends pointer movements, scrolls, clicks, key transitions and text you choose to send from your iPhone directly to your paired Mac. The Mac delivers them to the app you are using. Relaypad does not keep an input history, collect analytics, use ads, or send this input to the developer. Pairing works without an account or a cloud service.</p>
+  <h2>Discovery, pairing and permissions</h2>
+  <p>When the receiver runs, Bonjour advertises the Mac’s service name and a persistent receiver identifier on the local network. The encrypted session sends the phone’s display name to the Mac. Both apps use the pairing code to authenticate the TLS connection.</p>
+  <p>The phone stores a saved code for each paired receiver in Keychain. The Mac stores its receiver code in Keychain. The phone keeps its last receiver identifier, key mappings, sensitivity and haptic preferences in local app settings. Mac Accessibility permission lets the receiver post mouse and keyboard events. Local Network permission lets the devices find and connect to one another.</p>
+  <h2>Your controls</h2>
+  <p>Use <strong>Disconnect</strong> on iPhone to end the session and clear its automatic receiver selection. Choose <strong>Forget saved code</strong> for a Mac to remove that credential from the phone. On the Mac, <strong>Stop receiver</strong> closes connections and <strong>New code</strong> invalidates the old pairing code for all phones. You can also revoke permissions in system settings.</p>
+  <h2>Dictation and other apps</h2>
+  <p>Relaypad does not record or transmit microphone audio. Using iPhone keyboard dictation is governed by your keyboard provider and system settings. Triggering a Mac dictation app invokes that app’s microphone, processing and privacy choices. The resulting text and other input you send to a Mac app are subject to that app’s handling.</p>
+  <h2>This website and support</h2>
+  <p>This site serves static files and has no project analytics, tracking cookies or third-party embeds. GitHub hosts it and logs visitors’ IP addresses for security. If you open a GitHub issue, the content you submit is visible to people who can view that issue. <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection">GitHub Pages data collection</a> · <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub privacy statement</a></p>
+  <h2>Questions</h2>
+  <p>Contact Pratik Desai through the project’s support page. Keep pairing credentials and private input out of public issues. <a href="support.html">Contact support</a>.</p>
+</article></main>
+<footer><div class="shell foot"><span class="owner">Relaypad · Pratik Desai</span>
+  <nav aria-label="Footer"><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="https://github.com/chheplo/relaypad/blob/main/LICENSE">MIT license</a></nav>
+</div></footer>
+</body>
+</html>
