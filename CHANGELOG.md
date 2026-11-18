@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- On iPhone, open **Settings → About Relaypad → Privacy policy** to read how pairing and input data are handled.
+
 ## 1.0.4
 
 Relaypad’s first iPhone and Mac release line uses local protocol v1. The two apps can update independently while they support this protocol. [Downloads and availability](https://chheplo.github.io/relaypad/#downloads) · [Protocol v1](docs/protocol-v1.md)

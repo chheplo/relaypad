@@ -151,7 +151,13 @@ struct SettingsSheet: View {
                             Button("Cancel", role: .cancel) {}
                         }
                 }
-                Section("About Relaypad") { AboutRows() }
+                Section("About Relaypad") {
+                    AboutRows()
+                    Link(destination: URL(string: "https://chheplo.github.io/relaypad/privacy.html")!) {
+                        Label("Privacy policy", systemImage: "hand.raised")
+                    }
+                    .accessibilityIdentifier("about.privacy")
+                }
             }
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
