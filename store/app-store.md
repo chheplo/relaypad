@@ -7,7 +7,7 @@
 | Primary language | English (U.S.) |
 | Category | Utilities |
 | Price | Free |
-| Keywords | remote,mouse,keyboard,trackpad,shortcut,mac,controller,typing,hotkey,gesture |
+| Keywords | remote,mouse,keyboard,vibe coding,dictation,voice,prompt,terminal,hotkey,gesture |
 | Support URL | https://chheplo.github.io/relaypad/support.html |
 | Marketing URL | https://chheplo.github.io/relaypad/ |
 | Privacy policy URL | https://chheplo.github.io/relaypad/privacy.html |
@@ -18,9 +18,11 @@
 
 Turn your iPhone sideways and use it as a trackpad and shortcut keyboard for your Mac. Move the pointer, click, drag, and scroll while keeping your most-used keys within reach.
 
-The keypad starts with Fn, Control, Option, 1, 2, 3, and a wide Space key. Remap any key to a shortcut, hold a modifier while you tap another key, or double-tap Fn for Mac apps configured to use that gesture. Open Keyboard to type a longer message into the focused Mac app.
+Keep a vibe coding session going between sets at home. Leave the cursor in Claude Code or Codex on your Mac. In Relaypad, open Keyboard, dictate your next prompt with the iPhone keyboard, then tap Send to insert the text at the cursor.
 
-Download the free Relaypad for Mac companion from the project website. Put both devices on the same local network, start the Mac receiver, and enter its pairing code on your iPhone. Enable Accessibility for the receiver so it can deliver pointer and keyboard input. The devices reconnect using the saved pairing.
+The keypad starts with Fn, Control, Option, 1, 2, 3, and a wide Space key. Remap any key to a shortcut, hold a modifier while you tap another key, or double-tap Fn for Mac apps configured to use that gesture.
+
+Get the free Relaypad for Mac companion from the project website. Put both devices on the same local network, start the Mac receiver, and enter its pairing code on your iPhone. Enable Accessibility for the receiver so it can deliver pointer and keyboard input. The devices reconnect using the saved pairing.
 
 Relaypad uses an encrypted local connection. There is no account, subscription, advertising, or analytics. The iPhone app and Mac receiver are open source under the MIT license.
 
