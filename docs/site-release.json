@@ -1,5 +1,8 @@
 {
-  "iphone": { "version": null, "url": null, "status": "App Store release pending" },
+  "iphone": {
+    "version": "1.0.4",
+    "url": "https://apps.apple.com/app/relaypad/id6836093057"
+  },
   "mac-arm64": {
     "version": "1.0.4",
     "url": "https://github.com/chheplo/relaypad/releases/download/v1.0.4/Relaypad-1.0.4-macOS-arm64.dmg"
