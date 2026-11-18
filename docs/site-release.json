@@ -1,5 +1,11 @@
 {
-  "iphone": { "version": null, "url": null },
-  "mac-arm64": { "version": null, "url": null },
-  "mac-x86_64": { "version": null, "url": null }
+  "iphone": { "version": null, "url": null, "status": "App Store release pending" },
+  "mac-arm64": {
+    "version": "1.0.4",
+    "url": "https://github.com/chheplo/relaypad/releases/download/v1.0.4/Relaypad-1.0.4-macOS-arm64.dmg"
+  },
+  "mac-x86_64": {
+    "version": "1.0.4",
+    "url": "https://github.com/chheplo/relaypad/releases/download/v1.0.4/Relaypad-1.0.4-macOS-x86_64.dmg"
+  }
 }

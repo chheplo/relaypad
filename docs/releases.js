@@ -6,8 +6,14 @@ async function showReleases() {
   for (const row of document.querySelectorAll("[data-channel]")) {
     const channel = row.dataset.channel;
     const entry = releases[channel];
-    if (entry?.url === null) {
-      row.querySelector("[data-status]").textContent = "Available from source only";
+    const status = row.querySelector("[data-status]");
+    if (!entry) continue;
+    const link = row.querySelector("[data-download]");
+    link.hidden = true;
+    link.removeAttribute("href");
+    status.textContent = "See release notes for availability";
+    if (entry.url === null) {
+      if (typeof entry.status === "string" && entry.status.trim()) status.textContent = entry.status;
       continue;
     }
     if (typeof entry?.url !== "string" || typeof entry.version !== "string" || !entry.version) continue;
@@ -24,11 +30,11 @@ async function showReleases() {
       : url.origin === "https://github.com" && url.pathname.startsWith("/chheplo/relaypad/releases/download/")
         && url.pathname.endsWith("-macOS-" + architecture + ".dmg");
     if (!official) continue;
-    const link = row.querySelector("a");
     link.href = url.href;
-    link.textContent = iphone ? "View on App Store ↗" : "Download .dmg ↓";
-    link.setAttribute("aria-label", iphone ? "View Relaypad on the App Store" : "Download Relaypad for Mac, " + architecture);
-    row.querySelector("[data-status]").textContent = "Version " + entry.version;
+    link.textContent = iphone ? "View on App Store ↗" : "Download DMG ↓";
+    link.setAttribute("aria-label", iphone ? "View Relaypad on the App Store" : "Download Relaypad for Mac, " + (architecture === "arm64" ? "Apple silicon" : "Intel"));
+    link.hidden = false;
+    status.textContent = "Version " + entry.version;
   }
 }
-showReleases().catch(() => { /* Build instructions remain available when the manifest is offline. */ });
+showReleases().catch(() => { /* The verified release links are available in the HTML fallback. */ });
