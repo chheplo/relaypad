@@ -49,7 +49,7 @@ Set the public release number in `MARKETING_VERSION` in `Config/Base.xcconfig`. 
 
 ## Publishing download links
 
-The website reads `docs/site-release.json`. Each of the three channels has a `version` and a `url`. Leave them null until the corresponding download has been publicly verified. Use the production App Store listing for iPhone and architecture-specific GitHub Releases DMG URLs for macOS. A source-build link remains available for any channel without a verified download. Update the iPhone, Apple silicon and Intel entries independently when their releases go live.
+The website reads `docs/site-release.json`. Each of the three channels has a `version` and a `url`. For a pending download, leave them null and set `status` to a short explanation such as “DMG awaiting Apple notarization.” Publish a download URL only after verifying its public asset. Use the production App Store listing for iPhone and architecture-specific GitHub Releases DMG URLs for macOS. A pending row shows its status. The build instructions remain available below the download list. Update the iPhone, Apple silicon and Intel entries independently when their releases go live.
 
 ## Branches and pull requests
 

@@ -28,7 +28,7 @@ Relaypad uses an encrypted local connection. There is no account, subscription, 
 
 ## App Review notes
 
-A Mac running macOS 14 or later and an iPhone running iOS 17 or later are required for the end-to-end test. Download the free Mac companion from the marketing URL. No login or demo account is required.
+A Mac running macOS 14 or later and an iPhone running iOS 17 or later are required for the end-to-end test. The Mac companion and available installers are at https://github.com/chheplo/relaypad/releases/tag/v1.0.4. A source build is also documented at https://github.com/chheplo/relaypad/blob/main/CONTRIBUTING.md#build-from-source. No login or demo account is required.
 
 1. Put the Mac and iPhone on the same local network and allow Local Network access when prompted.
 2. Open Relaypad for Mac, start the receiver, and allow Relaypad in System Settings → Privacy & Security → Accessibility.
