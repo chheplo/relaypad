@@ -8,7 +8,12 @@ Use your iPhone as a wireless Mac trackpad with seven customizable shortcut keys
 
 ## Install
 
-Relaypad 1.0.4 requires iOS 17 or later and macOS 14 or later. On Apple silicon, open the DMG and drag **Relaypad for Mac** to Applications. The downloads page shows current availability for iPhone and Intel Macs. [Download the Apple silicon DMG](https://github.com/chheplo/relaypad/releases/download/v1.0.4/Relaypad-1.0.4-macOS-arm64.dmg) · [All downloads](https://chheplo.github.io/relaypad/#downloads) · [Build from source](CONTRIBUTING.md#build-from-source)
+Relaypad 1.0.4 requires iOS 17 or later and macOS 14 or later. Choose the DMG for your Mac, open it, and drag **Relaypad for Mac** to Applications. Find your chip or processor under **Apple menu → About This Mac**.
+
+- [Download for Mac with Apple silicon (DMG)](https://github.com/chheplo/relaypad/releases/download/v1.0.4/Relaypad-1.0.4-macOS-arm64.dmg)
+- [Download for Mac with Intel (DMG)](https://github.com/chheplo/relaypad/releases/download/v1.0.4/Relaypad-1.0.4-macOS-x86_64.dmg)
+
+The iPhone App Store release is pending. You can build the iPhone app from source in Xcode. [All downloads](https://chheplo.github.io/relaypad/#downloads) · [Build from source](CONTRIBUTING.md#build-from-source)
 
 ## Pair and try it
 

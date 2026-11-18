@@ -4,5 +4,8 @@
     "version": "1.0.4",
     "url": "https://github.com/chheplo/relaypad/releases/download/v1.0.4/Relaypad-1.0.4-macOS-arm64.dmg"
   },
-  "mac-x86_64": { "version": null, "url": null, "status": "DMG awaiting Apple notarization" }
+  "mac-x86_64": {
+    "version": "1.0.4",
+    "url": "https://github.com/chheplo/relaypad/releases/download/v1.0.4/Relaypad-1.0.4-macOS-x86_64.dmg"
+  }
 }
