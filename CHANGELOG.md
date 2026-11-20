@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- On first launch, Relaypad for iPhone explains how to install the Mac receiver and lets you send the download link to your Mac. The link is also available in Connection and Settings. [Setup screen](release-assets/web/iphone-mac-setup.webp)
 - On iPhone, open **Settings → About Relaypad → Privacy policy** to read how pairing and input data are handled.
 
 ## 1.0.4

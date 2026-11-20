@@ -7,14 +7,59 @@ final class RemoteDeckTests: XCTestCase {
         continueAfterFailure = false
         XCUIDevice.shared.orientation = .landscapeLeft
         app.launchEnvironment["RELAYPAD_TEST_PREFERENCES"] = "com.sachibk.relaypad.tests." + UUID().uuidString
+    }
+
+    private func openDeck() {
         app.launch()
+        let later = app.buttons["setup.later"]
+        XCTAssertTrue(later.waitForExistence(timeout: 5))
+        later.tap()
+        allowLocalNetworkIfNeeded()
+    }
+
+    private func allowLocalNetworkIfNeeded() {
         let permission = XCUIApplication(bundleIdentifier: "com.apple.springboard").alerts.firstMatch
-        if permission.waitForExistence(timeout: 2), permission.label.contains("local network") {
+        if permission.waitForExistence(timeout: 2), permission.label.localizedCaseInsensitiveContains("local network") {
             permission.buttons["Allow"].tap()
         }
     }
 
+    func testCompanionSetupAndReturningToConnection() {
+        app.launch()
+        let findMac = app.buttons["setup.findMac"]
+        XCTAssertTrue(findMac.waitForExistence(timeout: 5))
+        let download = app.descendants(matching: .any)["companion.download"].firstMatch
+        XCTAssertTrue(download.isHittable)
+        XCTAssertTrue(app.descendants(matching: .any)["companion.share"].firstMatch.exists)
+        let screenshot = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+        screenshot.name = "First-launch Mac setup"
+        screenshot.lifetime = .keepAlways
+        add(screenshot)
+
+        findMac.tap()
+        allowLocalNetworkIfNeeded()
+        XCTAssertTrue(app.navigationBars["Connection"].waitForExistence(timeout: 5))
+        XCTAssertTrue(download.isHittable)
+
+        app.terminate()
+        app.launch()
+        XCTAssertTrue(app.buttons["settings.open"].waitForExistence(timeout: 5))
+        XCTAssertFalse(findMac.exists)
+        app.buttons["Connection, Pair Mac"].tap()
+        XCTAssertTrue(app.navigationBars["Connection"].waitForExistence(timeout: 5))
+        XCTAssertTrue(download.isHittable)
+    }
+
+    func testExistingPairingSkipsMacSetupOnUpdate() {
+        app.launchArguments += ["-Relaypad.LastReceiver", UUID().uuidString]
+        app.launch()
+        allowLocalNetworkIfNeeded()
+        XCTAssertTrue(app.buttons["settings.open"].waitForExistence(timeout: 5))
+        XCTAssertFalse(app.buttons["setup.findMac"].exists)
+    }
+
     func testLandscapeDeckAndHeaderWhenPhoneRotates() {
+        openDeck()
         for orientation in [UIDeviceOrientation.portrait, .landscapeLeft, .landscapeRight] {
             XCUIDevice.shared.orientation = orientation
             let pad = app.descendants(matching: .any)["trackpad"].firstMatch
@@ -54,19 +99,26 @@ final class RemoteDeckTests: XCTestCase {
     }
 
     func testAboutShowsPublicVersionAndPrivacyPolicy() throws {
+        openDeck()
         app.buttons["settings.open"].tap()
-        let row = app.descendants(matching: .any)["about.version"].firstMatch
-        for _ in 0..<8 where !row.isHittable {
-            app.collectionViews.firstMatch.swipeUp(velocity: .slow)
-        }
         let version = try XCTUnwrap(Bundle(for: type(of: self)).object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String)
-        XCTAssertEqual(row.label, "Version, \(version)")
-        XCTAssertTrue(app.staticTexts["Developer, Pratik Desai (@chheplo)"].exists)
-        XCTAssertTrue(app.buttons["about.repository"].exists)
-        let policy = app.buttons["about.privacy"]
-        if !policy.isHittable { app.collectionViews.firstMatch.swipeUp(velocity: .slow) }
-        XCTAssertTrue(policy.isHittable)
-        XCTAssertEqual(policy.label, "Privacy policy")
+        let elements = app.descendants(matching: .any)
+        let developer = "Developer, Pratik Desai (@chheplo)"
+        let rows = [
+            (elements["about.version"].firstMatch, "Version, \(version)"),
+            (app.staticTexts[developer], developer),
+            (elements["about.repository"].firstMatch, "GitHub project"),
+            (elements["about.privacy"].firstMatch, "Privacy policy"),
+            (elements["companion.download"].firstMatch, "Download Relaypad for Mac")
+        ]
+        let list = app.collectionViews.firstMatch
+        for (row, label) in rows {
+            for _ in 0..<8 where !row.exists || !row.isHittable {
+                list.swipeUp(velocity: .slow)
+            }
+            XCTAssertTrue(row.exists && row.isHittable, "Could not reach \(label)")
+            XCTAssertEqual(row.label, label)
+        }
         let image = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
         image.name = "About Relaypad"
         image.lifetime = .keepAlways
@@ -74,6 +126,7 @@ final class RemoteDeckTests: XCTestCase {
     }
 
     func testShortcutRemappingSurvivesRelaunch() {
+        openDeck()
         app.buttons["settings.open"].tap()
         app.buttons["binding.0"].tap()
         let preset = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", "New chat")).firstMatch

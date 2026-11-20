@@ -81,21 +81,10 @@ final class RemoteControls: ObservableObject {
     private var pressed: [Int: [PadKey]] = [:]
     private var keyHolds: [PadKey: Int] = [:]
 
-    init(link: PhoneLink) {
+    init(link: PhoneLink, preferences: UserDefaults) {
         self.link = link
-        let defaults: UserDefaults
-        #if DEBUG
-        if let suite = ProcessInfo.processInfo.environment["RELAYPAD_TEST_PREFERENCES"], !suite.isEmpty,
-           let isolated = UserDefaults(suiteName: suite) {
-            defaults = isolated
-        } else {
-            defaults = .standard
-        }
-        #else
-        defaults = .standard
-        #endif
-        preferences = defaults
-        let saved = defaults.data(forKey: "keys.v1").flatMap { try? JSONDecoder().decode([KeyBinding].self, from: $0) }
+        self.preferences = preferences
+        let saved = preferences.data(forKey: "keys.v1").flatMap { try? JSONDecoder().decode([KeyBinding].self, from: $0) }
         switch saved?.count {
         case 6, KeyBinding.defaults.count:
             let existing = saved ?? []
@@ -103,8 +92,8 @@ final class RemoteControls: ObservableObject {
         default:
             bindings = KeyBinding.defaults
         }
-        sensitivity = defaults.object(forKey: "pointer.sensitivity") as? Double ?? 1.4
-        haptics = defaults.object(forKey: "controls.haptics") as? Bool ?? true
+        sensitivity = preferences.object(forKey: "pointer.sensitivity") as? Double ?? 1.4
+        haptics = preferences.object(forKey: "controls.haptics") as? Bool ?? true
         if saved?.count == 6 { persist() }
     }
 
