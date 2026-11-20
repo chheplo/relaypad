@@ -7,6 +7,61 @@ private struct CloseSheetItem: ToolbarContent {
     }
 }
 
+private struct MacCompanionDownloadLink: View {
+    static let url = URL(string: "https://chheplo.github.io/relaypad/#downloads")!
+
+    var body: some View {
+        Link(destination: Self.url) {
+            Label("Download Relaypad for Mac", systemImage: "arrow.down.circle")
+        }
+        .accessibilityIdentifier("companion.download")
+    }
+}
+
+struct MacSetupView: View {
+    var findMac: () -> Void
+    var later: () -> Void
+
+    var body: some View {
+        NavigationStack {
+            List {
+                Section {
+                    MacCompanionDownloadLink()
+                    ShareLink(item: MacCompanionDownloadLink.url) {
+                        Label("Share download link", systemImage: "square.and.arrow.up")
+                    }
+                    .accessibilityHint("Send the link to your Mac using AirDrop or Messages.")
+                    .accessibilityIdentifier("companion.share")
+                } header: {
+                    Text("Install the free Relaypad companion on your Mac to control its pointer and keyboard from this iPhone.")
+                        .font(.body)
+                        .foregroundStyle(DeckColor.ink)
+                        .textCase(nil)
+                        .padding(.bottom, 6)
+                } footer: {
+                    Text("Connect both devices to the same Wi-Fi. On your Mac, open Relaypad for Mac and click Start receiver. Then tap Find my Mac here.")
+                        .font(.callout)
+                }
+            }
+            .scrollContentBackground(.hidden)
+            .background(DeckColor.base)
+            .navigationTitle("Set up your Mac")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Later", action: later)
+                        .accessibilityIdentifier("setup.later")
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Find my Mac", action: findMac)
+                        .accessibilityIdentifier("setup.findMac")
+                }
+            }
+        }
+        .tint(DeckColor.amber)
+    }
+}
+
 struct ConnectionSheet: View {
     @ObservedObject var link: PhoneLink
     @State private var selected: RemoteHost?
@@ -53,8 +108,6 @@ struct ConnectionSheet: View {
                         }
                     } header: {
                         Text("Nearby Macs")
-                    } footer: {
-                        Text("Open Relaypad for Mac. Connect both devices to the same local network and allow Local Network access.")
                     }
 
                     if let host = selected {
@@ -86,6 +139,11 @@ struct ConnectionSheet: View {
                             Text("Enter the pairing code shown in the Mac app.")
                         }
                     }
+                    Section {
+                        MacCompanionDownloadLink()
+                    } footer: {
+                        Text("On your Mac, open Relaypad for Mac and click Start receiver. Connect both devices to the same Wi-Fi and allow Local Network access on your iPhone.")
+                    }
                     if !link.statusMessage.isEmpty {
                         Section { Text(link.statusMessage).font(.callout).foregroundStyle(.secondary) }
                     }
@@ -94,6 +152,7 @@ struct ConnectionSheet: View {
             .navigationTitle("Connection")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar { CloseSheetItem() }
+            .onAppear { link.start() }
             .onChange(of: link.isConnected) { _, connected in if connected { focusCode = false; code = "" } }
         }
     }
@@ -157,6 +216,7 @@ struct SettingsSheet: View {
                         Label("Privacy policy", systemImage: "hand.raised")
                     }
                     .accessibilityIdentifier("about.privacy")
+                    MacCompanionDownloadLink()
                 }
             }
             .navigationTitle("Settings")

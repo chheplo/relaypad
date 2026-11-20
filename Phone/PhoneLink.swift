@@ -20,7 +20,9 @@ final class PhoneLink: ObservableObject {
     @Published private(set) var canControl = false
 
     private static let lastIDKey = "Relaypad.LastReceiver"
-    private var desiredID = UserDefaults.standard.string(forKey: lastIDKey)
+    private let preferences: UserDefaults
+    private var desiredID: String?
+    var hasPreferredReceiver: Bool { desiredID != nil }
     private var autoPairingBlocked = false
     private var attemptedID: String?
     private var browser: NWBrowser?
@@ -28,6 +30,11 @@ final class PhoneLink: ObservableObject {
     private var retry: DispatchWorkItem?
     private var retryDelay: Double = 1
     private var isActive = false
+
+    init(preferences: UserDefaults) {
+        self.preferences = preferences
+        desiredID = preferences.string(forKey: Self.lastIDKey)
+    }
 
     func start() {
         guard browser == nil else { return }
@@ -196,7 +203,7 @@ final class PhoneLink: ObservableObject {
 
     private func remember(_ id: String?) {
         desiredID = id
-        UserDefaults.standard.set(id, forKey: Self.lastIDKey)
+        preferences.set(id, forKey: Self.lastIDKey)
     }
 
     private func autoConnectIfAvailable() {

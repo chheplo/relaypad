@@ -5,29 +5,68 @@ import UIKit
 struct RelaypadPhoneApp: App {
     @StateObject private var link: PhoneLink
     @StateObject private var controls: RemoteControls
+    @State private var showingMacSetup: Bool
+    @State private var sheet: DeckSheet?
     @Environment(\.scenePhase) private var scenePhase
 
+    private let preferences: UserDefaults
+    private static let setupShownKey = "Relaypad.MacSetupShown"
+
     init() {
-        let connection = PhoneLink()
+        let defaults: UserDefaults
+        #if DEBUG
+        if let suite = ProcessInfo.processInfo.environment["RELAYPAD_TEST_PREFERENCES"], !suite.isEmpty,
+           let isolated = UserDefaults(suiteName: suite) {
+            defaults = isolated
+        } else {
+            defaults = .standard
+        }
+        #else
+        defaults = .standard
+        #endif
+        preferences = defaults
+        let connection = PhoneLink(preferences: defaults)
         _link = StateObject(wrappedValue: connection)
-        _controls = StateObject(wrappedValue: RemoteControls(link: connection))
+        _controls = StateObject(wrappedValue: RemoteControls(link: connection, preferences: defaults))
+        _showingMacSetup = State(initialValue: !defaults.bool(forKey: Self.setupShownKey) && !connection.hasPreferredReceiver)
     }
 
     var body: some Scene {
         WindowGroup {
-            RemoteDeck(link: link, controls: controls)
-                .preferredColorScheme(.dark)
-                .onAppear { link.start() }
-                .onChange(of: scenePhase) { _, phase in
-                    if phase == .active { link.start() }
-                    else {
-                        controls.reset()
-                        if phase == .background { link.stop() }
+            Group {
+                if showingMacSetup {
+                    MacSetupView {
+                        sheet = .connection
+                        showingMacSetup = false
+                    } later: {
+                        showingMacSetup = false
                     }
+                } else {
+                    RemoteDeck(link: link, controls: controls, sheet: $sheet)
                 }
-                .onChange(of: link.canControl) { _, allowed in
-                    if !allowed { controls.reset() }
+            }
+            .preferredColorScheme(.dark)
+            .onAppear {
+                preferences.set(true, forKey: Self.setupShownKey)
+                resumeDiscoveryIfNeeded()
+            }
+            .onChange(of: scenePhase) { _, phase in
+                if phase == .active {
+                    resumeDiscoveryIfNeeded()
+                } else {
+                    controls.reset()
+                    if phase == .background { link.stop() }
                 }
+            }
+            .onChange(of: link.canControl) { _, allowed in
+                if !allowed { controls.reset() }
+            }
+        }
+    }
+
+    private func resumeDiscoveryIfNeeded() {
+        if !showingMacSetup && (sheet == .connection || link.hasPreferredReceiver) {
+            link.start()
         }
     }
 }
@@ -65,7 +104,7 @@ private enum DeckSheet: String, Identifiable {
 private struct RemoteDeck: View {
     @ObservedObject var link: PhoneLink
     @ObservedObject var controls: RemoteControls
-    @State private var sheet: DeckSheet?
+    @Binding var sheet: DeckSheet?
 
     private var canSend: Bool { link.isConnected && link.canControl }
     private var connectionTitle: String {
